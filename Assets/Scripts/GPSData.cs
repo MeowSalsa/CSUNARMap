@@ -8,25 +8,27 @@ using UnityEngine.UI;
 public class GPSData : MonoBehaviour
 {
     public static GPSData Instance { get; set; }
-    public TMP_Text GPS_Status; 
+    public TMP_Text GPS_Status;
     public float longitude;
     public float latitude;
+    public double timeStamp;
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        StartCoroutine(GPSLocation());   
+        StartCoroutine(GPSLocation());
     }
     private void Update()
     {
-        GPS_Status.text = "INside updategps fn";
+        GPS_Status.text = "Inside update method";
         if (Input.location.status == LocationServiceStatus.Running)
         {
             GPS_Status.text = "Connection Successful";
 
             latitude = Input.location.lastData.latitude;
             longitude = Input.location.lastData.longitude;
+            timeStamp = Input.location.lastData.timestamp;
         }
     }
     IEnumerator GPSLocation()
@@ -63,31 +65,6 @@ public class GPSData : MonoBehaviour
             GPS_Status.text = "Unable to determine device location";
             yield break;
         }
-        else
-        {
-            //Connection successful
-            GPS_Status.text = "Invoking Repeating Fn";
-
-            //InvokeRepeating("UpdateGPSData", 0.2f, 1.0f);
-        }
-
-        // Stops the location service if there is no need to query location updates continuously.
     }
-
-    //private void UpdateGPSData()
-    //{
-      //  GPS_Status.text = "INside updategps fn";
-        //if (Input.location.status == LocationServiceStatus.Running)
-        //{
-          //  GPS_Status.text = "Connection Successful";
-
-            //latitude = Input.location.lastData.latitude;
-            //longitude = Input.location.lastData.longitude;
-        //}
-        //else
-        //{
-          //  Input.location.Stop();
-        //}
-    //}
 }
 
