@@ -1,24 +1,16 @@
 using System.Collections;
-using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
 
 
-public class DirectionsAPIHandler : MonoBehaviour
+public static class DirectionsAPIHandler
 {
-    public TextAsset testJSONData;
+    [SerializeField] private static TextAsset testJSONData;
     private const string API_KEY = "AIzaSyAX_31pghGvv0axcnsP_OR7filS4 - NuJN4";
+    private static Direction direction;
 
     //public string url = string.Format("https://maps.googleapis.com/maps/api/directions/json?origin={0}{1}&destination={2}{3}&mode=walking&key={4}",user_lat, user_long, dest_lat,dest_long, API_KEY);
-    public string uri = "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&mode=walking&key=AIzaSyAX_31pghGvv0axcnsP_OR7filS4 - NuJN4";
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(GetRoute(uri));
-
-    }
-
-    private IEnumerator GetRoute(string uri)
+    private static IEnumerator GetRoute(string uri)
     {
         UnityWebRequest request = UnityWebRequest.Get(uri);
         yield return request.SendWebRequest();
@@ -29,15 +21,24 @@ public class DirectionsAPIHandler : MonoBehaviour
         else
         {
             Debug.Log("Received: " + request.downloadHandler.text);
+            direction = JsonUtility.FromJson<Direction>(request.downloadHandler.text);
         }
         //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key={0}", API_KEY));
         //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         //StreamReader reader = new StreamReader(response.GetResponseStream());
         //string json = reader.ReadToEnd();
+    }
 
-        var myDeserializedClass = JsonUtility.FromJson<Direction>(request.downloadHandler.text);
-
-
+    public static Direction CreateDirectionsCall(int user_lat, int user_long, int destination_lat, int destination_long, MonoBehaviour instance)
+    {
+        string uri = string.Format("https://maps.googleapis.com/maps/api/directions/json?origin={0},{1}&destination={2},{3}&mode=walking&key={4}", user_lat, user_long, destination_lat, destination_long, API_KEY);
+        instance.StartCoroutine(GetRoute(uri));
+        if (!direction.status.Equals("OK"))
+        {
+            Debug.Log("Directions API error: " + direction.status);
+            return null;
+        }
+        return direction;
     }
 }
 
