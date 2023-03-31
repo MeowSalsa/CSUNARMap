@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "26151JEGR09619",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "26151JEGR09619",
+        "name": "com.DefaultCompany.CSUNARMap",
+        "processId": 5626,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,216 @@
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
             "processId": 4254,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 4194,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 4749,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 5235,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 6028,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 6456,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 6982,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 7556,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 8069,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 8464,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 9527,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 9952,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 10567,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 11054,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 11576,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 12242,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 13178,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 13692,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 14474,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 14949,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 15437,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 16625,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 18048,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 18572,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 22306,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 22897,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 23853,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 24295,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 24816,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 28670,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 29168,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 29707,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 30832,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 31179,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 32267,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 5626,
             "exited": false
         }
     ],

@@ -65,6 +65,11 @@ public class Direction
 {
     public List<Route> routes;
     public string status;
+
+    public override string ToString()
+    {
+        return status;
+    }
 }
 
 [System.Serializable]
