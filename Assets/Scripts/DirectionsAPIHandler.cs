@@ -7,7 +7,7 @@ public class DirectionsAPIHandler : MonoBehaviour
 {
     [SerializeField] private TextAsset testJSONData;
 
-    private const string API_KEY = "AIzaSyAX_31pghGvv0axcnsP_OR7filS4 - NuJN4";
+    private const string API_KEY = "AIzaSyAX_31pghGvv0axcnsP_OR7filS4-NuJN4";
     protected Direction directions;
 
     private IEnumerator GetRoute(string uri)
