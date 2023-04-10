@@ -12,8 +12,9 @@ public class GPSData : MonoBehaviour
     public float longitude;
     public float latitude;
     public double timeStamp;
+    private float north = float.MaxValue;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -42,6 +43,7 @@ public class GPSData : MonoBehaviour
             yield break;
         }
         // Starts the location service.
+        Input.compass.enabled = true;
         Input.location.Start(0f, 0f);
 
         // Waits until the location service initializes
@@ -65,6 +67,13 @@ public class GPSData : MonoBehaviour
             GPS_Status.text = "Unable to determine device location";
             yield break;
         }
+    }
+
+    public float getNorth()
+    {
+        north = Input.compass.trueHeading;
+        Debug.Log("NORTH IN GET NORTH METHOD " + north);
+        return north;
     }
 }
 

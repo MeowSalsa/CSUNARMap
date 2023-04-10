@@ -31,7 +31,9 @@ public class DirectionsAPIHandler : MonoBehaviour
         var uri = string.Format("https://maps.googleapis.com/maps/api/directions/json?origin={0},{1}&destination={2},{3}&mode=walking&key={4}", user_lat, user_long, destination_lat, destination_long, API_KEY);
         StartCoroutine(GetRoute(uri));
     }
-    public Direction getDirections() { return directions; }
+    public Direction getDirections() { 
+        directions = JsonUtility.FromJson<Direction>(testJSONData.text);
+        return directions; }
 }
 
 //This is how API calls should look
