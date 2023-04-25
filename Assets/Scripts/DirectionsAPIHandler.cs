@@ -32,7 +32,7 @@ public class DirectionsAPIHandler : MonoBehaviour
         StartCoroutine(GetRoute(uri));
     }
     public Direction getDirections() { 
-        directions = JsonUtility.FromJson<Direction>(testJSONData.text);
+        //directions = JsonUtility.FromJson<Direction>(testJSONData.text);
         return directions; }
 }
 

@@ -1,0 +1,111 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJx4Um0EyQwoARK-j00TTZpek",
+         "types" : [ "premise" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ90oiUbWRwoARLldtZA1lkww",
+         "types" : [ "car_rental", "establishment", "point_of_interest" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 34.279361,
+               "lng" : -118.4381599
+            },
+            "southwest" : {
+               "lat" : 34.2774218,
+               "lng" : -118.4405475
+            }
+         },
+         "copyrights" : "Map data \u00a92023 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "0.2 mi",
+                  "value" : 337
+               },
+               "duration" : {
+                  "text" : "4 mins",
+                  "value" : 265
+               },
+               "end_address" : "638 San Fernando Rd, San Fernando, CA 91340, USA",
+               "end_location" : {
+                  "lat" : 34.279361,
+                  "lng" : -118.4381599
+               },
+               "start_address" : "641 Hollister St, San Fernando, CA 91340, USA",
+               "start_location" : {
+                  "lat" : 34.2774218,
+                  "lng" : -118.4403413
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "121 ft",
+                        "value" : 37
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 27
+                     },
+                     "end_location" : {
+                        "lat" : 34.2776192,
+                        "lng" : -118.4405475
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eHollister St\u003c/b\u003e toward \u003cb\u003eWolfskill St\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "{xepEb{{qUUTQR"
+                     },
+                     "start_location" : {
+                        "lat" : 34.2774218,
+                        "lng" : -118.4403413
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 300
+                     },
+                     "duration" : {
+                        "text" : "4 mins",
+                        "value" : 238
+                     },
+                     "end_location" : {
+                        "lat" : 34.279361,
+                        "lng" : -118.4381599
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eWolfskill St\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "czepEl|{qUkAgBQYi@y@_@k@S[IMi@w@OUEI?@S]A@MUKQe@q@"
+                     },
+                     "start_location" : {
+                        "lat" : 34.2776192,
+                        "lng" : -118.4405475
+                     },
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "{xepEb{{qUg@h@}AaCgBoCoByCe@q@"
+         },
+         "summary" : "Wolfskill St",
+         "warnings" : [
+            "Walking directions are in beta. Use caution \u2013 This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

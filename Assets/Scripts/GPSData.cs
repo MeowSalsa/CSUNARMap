@@ -5,6 +5,7 @@ using UnityEngine.Android;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class GPSData : MonoBehaviour
 {
     public static GPSData Instance { get; set; }
@@ -13,6 +14,8 @@ public class GPSData : MonoBehaviour
     public float latitude;
     public double timeStamp;
     private float north = float.MaxValue;
+    static public float headingAccuracy;
+    static public float northForText;
     // Start is called before the first frame update
     public void Start()
     {
@@ -44,7 +47,7 @@ public class GPSData : MonoBehaviour
         }
         // Starts the location service.
         Input.compass.enabled = true;
-        Input.location.Start(0f, 0f);
+        Input.location.Start(5f, 5f);
 
         // Waits until the location service initializes
         int maxWait = 20;
@@ -68,12 +71,13 @@ public class GPSData : MonoBehaviour
             yield break;
         }
     }
-
-    public float getNorth()
+    public static float getNorth()
     {
-        north = Input.compass.trueHeading;
-        Debug.Log("NORTH IN GET NORTH METHOD " + north);
-        return north;
+        Instance.north = Input.compass.trueHeading;
+        northForText = Instance.north;
+        headingAccuracy = Input.compass.headingAccuracy;
+        Debug.Log("North at getNorth() " + Instance.north);
+        return Instance.north;
     }
 }
 

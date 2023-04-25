@@ -1,0 +1,7 @@
+<linker>
+<assembly fullname="UnityEngine">
+<type fullname="MeshFilter" preserve="all"/>
+<type fullname="MeshRenderer" preserve="all"/>
+<type fullname="SphereCollider" preserve="all"/>
+</assembly>
+</linker>
