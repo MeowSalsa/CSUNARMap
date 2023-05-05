@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2276,6 +2276,7 @@ GameObject:
   - component: {fileID: 966159366}
   - component: {fileID: 966159365}
   - component: {fileID: 966159364}
+  - component: {fileID: 966159368}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2290,7 +2291,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966159362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
@@ -2301,7 +2302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -794}
+  m_AnchoredPosition: {x: -0.000030517578, y: -794}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966159364
@@ -2361,7 +2362,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 966159366}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 966159368}
+        m_TargetAssemblyTypeName: ChangeTextScript, Assembly-CSharp
+        m_MethodName: ToggleTargetButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &966159366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2400,6 +2413,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966159362}
   m_CullTransparentMesh: 1
+--- !u!114 &966159368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966159362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7090ea70d9b834116b6d2deae25b0452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myText: {fileID: 279364982}
+  targetButton: {fileID: 966159362}
 --- !u!1 &1033813840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,6 +2607,7 @@ GameObject:
   - component: {fileID: 1215719225}
   - component: {fileID: 1215719224}
   - component: {fileID: 1215719227}
+  - component: {fileID: 1215719228}
   m_Layer: 5
   m_Name: DropDownButton
   m_TagString: Untagged
@@ -2664,6 +2692,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 966159368}
+        m_TargetAssemblyTypeName: ChangeTextScript, Assembly-CSharp
+        m_MethodName: ToggleText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1215719225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,6 +2756,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 1331610661}
   panel: {fileID: 1471428583}
+--- !u!114 &1215719228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215719222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7090ea70d9b834116b6d2deae25b0452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myText: {fileID: 279364982}
+  targetButton: {fileID: 1215719222}
 --- !u!1 &1255474584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,7 +3350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -831, y: 0}
+  m_AnchoredPosition: {x: -1169, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471428584
