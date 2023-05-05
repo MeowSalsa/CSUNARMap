@@ -914,7 +914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1168308761
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionsHandlerObject: {fileID: 1335802610}
-  gpsHandler: {fileID: 1455601591}
   stepPrefab: {fileID: 3527002008561638148, guid: c722b667950a49643be16e6bb8f3f22b,
     type: 3}
   interpolatePrefab: {fileID: 4418008641038361359, guid: c16c816ce85b3ba44bee197a0a10e0d5,
@@ -1559,7 +1558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2094419340
 MonoBehaviour:
   m_ObjectHideFlags: 0
