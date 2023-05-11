@@ -16,6 +16,14 @@ public class ARGuide : MonoBehaviour
     private List<GameObject> interpolationObjectsList;
     private float north;
 
+    float angle;
+    float offsetAngle;
+    Vector3 targetDot;
+    Vector3 forward;
+
+    public GameObject RightArrow;
+    public GameObject LeftArrow;
+
     void Start()
     {
         north = GPSData.getNorth();
@@ -58,10 +66,14 @@ public class ARGuide : MonoBehaviour
                 {
                     currCheckpoint = PlaceCheckpoint(checkpoint);
                     InterpolatePath(currCheckpoint);
+                    offsetAngle = getAngle(currCheckpoint);
+                    
                 }
 
                 if (currIndex != totalCheckpoints)
                 {
+                    //check if user is going the right direction
+                    checkDirection();
                     if (cam.transform.position == gameObject.transform.position)
                     {
                         currIndex++;
@@ -163,5 +175,50 @@ public class ARGuide : MonoBehaviour
     private double Rad2Deg(double radians) { 
         double degrees = (180/Math.PI)*radians;
         return degrees;
+    }
+    private bool isVisible(GameObject path)
+    {
+        var planes = GeometryUtility.CalculateFrustumPlanes(cam);
+        Vector3 point = path.transform.position;
+
+        foreach(var plane in planes)
+        {
+            if (plane.GetDistanceToPoint(point) < 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private float getAngle(GameObject currDot)
+    {
+        targetDot = currDot.transform.position - cam.transform.position;
+        forward = cam.transform.forward;
+        return Vector3.SignedAngle(targetDot, forward, Vector3.up);
+    }
+
+    private void checkDirection()
+    {
+        angle = getAngle(currCheckpoint) - offsetAngle;
+        Debug.Log("angle " + angle);
+        if (!isVisible(currCheckpoint) && angle < -8.0F)
+        {
+            Debug.Log("Turn Right");
+            RightArrow.transform.position = new Vector3(100f, 2000f, 0f);
+            LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+        }
+        else if (!isVisible(currCheckpoint) && angle > 8.0F)
+        {
+            Debug.Log("Turn Left");
+            LeftArrow.transform.position = new Vector3(1340f, 2000f, 0f);
+            RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+        }
+        else
+        {
+            Debug.Log("Forward");
+            RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+            LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+        }
     }
 }
