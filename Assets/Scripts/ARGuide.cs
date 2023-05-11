@@ -23,7 +23,7 @@ public class ARGuide : MonoBehaviour
     GameObject currCheckpoint = null;
     private List<GameObject> interpolationObjectsList;
     private float north;
-
+    //vars to determine if user is facing the correct direction
     float angle;
     float offsetAngle;
     Vector3 targetDot;
