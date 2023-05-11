@@ -32,8 +32,10 @@ public class ARGuide : MonoBehaviour
     public GameObject RightArrow;
     public GameObject LeftArrow;
 
-    //can start now adding the value to be called in the API 
-    private double x = 0;
+    //creating lon/lat variables.  These will be updated when the start button is pressed
+    private double buildingLong = 0;
+    private double buildingLat = 0;
+
     void Start()
     {
         north = GPSData.getNorth();
@@ -50,7 +52,8 @@ public class ARGuide : MonoBehaviour
     private void Update()
     {
         Debug.Log(destinationSelected);
-        Debug.Log(x);
+        Debug.Log(buildingLat);
+        Debug.Log(buildingLong);
         //Keep trying to get north until it's not the preset MaxValue or 0.
         if (north == float.MaxValue || north == 0)
         {
@@ -244,22 +247,28 @@ public class ARGuide : MonoBehaviour
         // Get the currently selected option from the dropdown menu
         int selectedOption = dropdown.value;
         destinationSelected = true;
+        Debug.Log("destinationSelected is now set to true");
+
         // Trigger an event based on the selected option
         switch (selectedOption)
         {
             case 0:
                 // Call a method or trigger an event for the first option
-                Debug.Log("First option selected");
-                x = 2000;
+                Debug.Log("First option Live Oak selected");
+                buildingLat = 34.23831094969026;
+                buildingLong = -118.52881329904426;
                 break;
             case 1:
                 // Call a method or trigger an event for the second option
-                Debug.Log("Second option selected");
-                x =3000;
+                Debug.Log("Second option Jacaranda Hall selected");
+                buildingLat = 34.24102589706847;
+                buildingLong = -118.52823169893887;
                 break;
             case 2:
                 // Call a method or trigger an event for the third option
-                Debug.Log("Third option selected");
+                Debug.Log("Third option Eucalyptus Hall selected");
+                buildingLat = 34.23868708007037;
+                buildingLong = -118.52880624514333;
                 break;
             // Add more cases for additional options as needed
             default:
@@ -268,8 +277,10 @@ public class ARGuide : MonoBehaviour
         }
         panel.anchoredPosition = new Vector2(-panelWidth, 0);
     }
+    // going to make the destinationSelected false to stop calling 
     public void StopCalling()
     {
+        Debug.Log("destinationSelected is now set to false");
         destinationSelected = false;
     }
 

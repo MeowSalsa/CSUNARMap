@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1376,7 +1376,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: 'Jacaranda Hall '
       m_Image: {fileID: 0}
-    - m_Text: 'Matador Hall '
+    - m_Text: Eucalyptus Hall
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2227,8 +2227,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234598135}
-        m_TargetAssemblyTypeName: DropdownButton, Assembly-CSharp
+      - m_Target: {fileID: 1448624355}
+        m_TargetAssemblyTypeName: ARGuide, Assembly-CSharp
         m_MethodName: ToggleDropdown
         m_Mode: 1
         m_Arguments:
@@ -2475,8 +2475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e978012570e909141801e232508ec2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropdown: {fileID: 0}
-  panel: {fileID: 0}
+  dropdown: {fileID: 893783625}
+  panel: {fileID: 166181512}
   directionsHandlerObject: {fileID: 1335802610}
   stepPrefab: {fileID: 3527002008561638148, guid: c722b667950a49643be16e6bb8f3f22b,
     type: 3}
@@ -2491,8 +2491,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448624354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0477055, y: 10.206549, z: -13.080148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0477295, y: 10.206543, z: -13.080148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2cd12f8a9f37a74ba25fd8ce4cf0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinates: {fileID: 0}
+  coordinates: {fileID: 2092467943}
 --- !u!114 &1455601593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,6 +2910,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1724929362}
         m_TargetAssemblyTypeName: ChangeTextScript, Assembly-CSharp
         m_MethodName: ToggleTargetButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1448624355}
+        m_TargetAssemblyTypeName: ARGuide, Assembly-CSharp
+        m_MethodName: StopCalling
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
