@@ -1,9 +1,17 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ARGuide : MonoBehaviour
 {
+        //pannel/dropdown 
+    public TMP_Dropdown dropdown;
+    public RectTransform panel;
+    private float panelWidth;
+
     private bool destinationSelected;
     private DirectionsAPIHandler directionsAPIHandler;
     [SerializeField] private GameObject directionsHandlerObject;
@@ -24,12 +32,16 @@ public class ARGuide : MonoBehaviour
     public GameObject RightArrow;
     public GameObject LeftArrow;
 
+    //can start now adding the value to be called in the API 
+    private double x = 0;
     void Start()
     {
         north = GPSData.getNorth();
         directionsAPIHandler = directionsHandlerObject.GetComponent<DirectionsAPIHandler>();
         cam = Camera.main;
         destinationSelected = false;
+        panelWidth = panel.rect.width;
+
     }
 
     int currIndex = 0;
@@ -37,6 +49,8 @@ public class ARGuide : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(destinationSelected);
+        Debug.Log(x);
         //Keep trying to get north until it's not the preset MaxValue or 0.
         if (north == float.MaxValue || north == 0)
         {
@@ -44,10 +58,12 @@ public class ARGuide : MonoBehaviour
             return;
         }
         //destinationSelected should be set to true when the User selects a destination and presses start
+
         if (destinationSelected)
         {    // if steps doesnt contain any steps yet, get steps from directionsAPIHandler.
              //returns in case DirectionsAPIHandler isnt ready. This if statement stops working
              //when steps is not null meaning APIHandler has returned steps.
+
             if (steps == null)
             {
 
@@ -221,4 +237,41 @@ public class ARGuide : MonoBehaviour
             LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         }
     }
+
+    //going to get drop down information
+    public void ToggleDropdown()
+    {
+        // Get the currently selected option from the dropdown menu
+        int selectedOption = dropdown.value;
+        destinationSelected = true;
+        // Trigger an event based on the selected option
+        switch (selectedOption)
+        {
+            case 0:
+                // Call a method or trigger an event for the first option
+                Debug.Log("First option selected");
+                x = 2000;
+                break;
+            case 1:
+                // Call a method or trigger an event for the second option
+                Debug.Log("Second option selected");
+                x =3000;
+                break;
+            case 2:
+                // Call a method or trigger an event for the third option
+                Debug.Log("Third option selected");
+                break;
+            // Add more cases for additional options as needed
+            default:
+                // Do nothing if no option is selected
+                break;
+        }
+        panel.anchoredPosition = new Vector2(-panelWidth, 0);
+    }
+    public void StopCalling()
+    {
+        destinationSelected = false;
+    }
+
+
 }

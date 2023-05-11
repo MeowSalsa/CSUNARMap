@@ -10,6 +10,6 @@ public class GPSText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coordinates.text = "Latitude: " + GPSData.Instance.latitude.ToString("R") + "\n Longitude: " + GPSData.Instance.longitude.ToString("R") + "\n Time stamp: " + GPSData.Instance.timeStamp.ToString() + "\n\n North: " + GPSData.northForText.ToString() + "\n\n Heading Accuracy: " + GPSData.headingAccuracy.ToString();
+        coordinates.text = "Latitude: " + GPSData.Instance.latitude.ToString() + "\n\n Longitude: " + GPSData.Instance.longitude.ToString() + "\n\n Time stamp: " + GPSData.Instance.timeStamp.ToString();
     }
 }
