@@ -251,18 +251,18 @@ public class ARGuide : MonoBehaviour
 
     private void checkDirection()
     {
-        angle = getAngle(currCheckpoint) - offsetAngle;
+        angle = getAngle(currCheckpoint);// - offsetAngle;
         Debug.Log("angle " + angle);
-        if (!isVisible(currCheckpoint) && angle < -8.0F)
+        if (!isVisible(currCheckpoint) && angle < -15.0F)
         {
             Debug.Log("Turn Right");
             RightArrow.transform.position = new Vector3(100f, 2000f, 0f);
             LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         }
-        else if (!isVisible(currCheckpoint) && angle > 8.0F)
+        else if (!isVisible(currCheckpoint) && angle > 15.0F)
         {
             Debug.Log("Turn Left");
-            LeftArrow.transform.position = new Vector3(1340f, 2000f, 0f);
+            LeftArrow.transform.position = new Vector3(975f, 2000f, 0f);
             RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         }
         else
@@ -321,6 +321,8 @@ public class ARGuide : MonoBehaviour
     {
         Debug.Log("destinationSelected is now set to false");
         destinationSelected = false;
+        RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+        LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         //var objects = GameObject.FindObjectsOfType(GameObject);
         DestroyAllGameObjects();
     }
