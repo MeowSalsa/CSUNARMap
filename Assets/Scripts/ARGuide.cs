@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class ARGuide : MonoBehaviour
 {
-        //pannel/dropdown 
+    //pannel/dropdown 
     public TMP_Dropdown dropdown;
     public RectTransform panel;
     private float panelWidth;
@@ -23,6 +24,7 @@ public class ARGuide : MonoBehaviour
     GameObject currCheckpoint = null;
     private List<GameObject> interpolationObjectsList;
     private float north;
+
     //vars to determine if user is facing the correct direction
     float angle;
     float offsetAngle;
@@ -35,6 +37,8 @@ public class ARGuide : MonoBehaviour
     //creating lon/lat variables.  These will be updated when the start button is pressed
     private double buildingLong = 0;
     private double buildingLat = 0;
+    private double  user_lat;
+    private double user_long;
 
     void Start()
     {
@@ -43,7 +47,8 @@ public class ARGuide : MonoBehaviour
         cam = Camera.main;
         destinationSelected = false;
         panelWidth = panel.rect.width;
-
+        user_lat = GPSData.Instance.latitude;
+        user_long = GPSData.Instance.latitude;
     }
 
     int currIndex = 0;
@@ -73,7 +78,7 @@ public class ARGuide : MonoBehaviour
                 steps = directionsAPIHandler.getDirections().routes[0].legs[0].steps;
                 totalCheckpoints = steps.Count;
                 Debug.Log("Getting steps " + totalCheckpoints);
-                return;
+                //return;
             }
 
             //get first step
@@ -276,13 +281,31 @@ public class ARGuide : MonoBehaviour
                 break;
         }
         panel.anchoredPosition = new Vector2(-panelWidth, 0);
+
+        //Api call here 
+        
+        directionsAPIHandler.CreateDirectionsCall(user_lat, user_long, buildingLat, buildingLong);
+        
     }
+
     // going to make the destinationSelected false to stop calling 
     public void StopCalling()
     {
         Debug.Log("destinationSelected is now set to false");
         destinationSelected = false;
+        //var objects = GameObject.FindObjectsOfType(GameObject);
+        //DestroyAllGameObjects();
     }
+
+ public void DestroyAllGameObjects()
+ {
+     GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
+ 
+     for (int i = 0; i < GameObjects.Length; i++)
+     {
+         Destroy(GameObjects[i]);
+     }
+ }
 
 
 }
