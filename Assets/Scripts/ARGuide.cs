@@ -325,6 +325,7 @@ public class ARGuide : MonoBehaviour
         LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         //var objects = GameObject.FindObjectsOfType(GameObject);
         DestroyAllGameObjects();
+        steps = null;
     }
 
  public void DestroyAllGameObjects()

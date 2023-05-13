@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "26151JEGR09619",
         "name": "com.DefaultCompany.CSUNARMap",
-        "processId": 18770,
+        "processId": 23533,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -36,6 +36,12 @@
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
             "processId": 18770,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 23533,
             "exited": false
         }
     ],
