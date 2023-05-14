@@ -37,8 +37,6 @@ public class ARGuide : MonoBehaviour
     //creating lon/lat variables.  These will be updated when the start button is pressed
     private double buildingLong = 0;
     private double buildingLat = 0;
-    private double  user_lat;
-    private double user_long;
 
     void Start()
     {
@@ -47,8 +45,6 @@ public class ARGuide : MonoBehaviour
         cam = Camera.main;
         destinationSelected = false;
         panelWidth = panel.rect.width;
-        user_lat = GPSData.Instance.latitude;
-        user_long = GPSData.Instance.latitude;
     }
 
     int currIndex = 0;
@@ -71,7 +67,6 @@ public class ARGuide : MonoBehaviour
         {    // if steps doesnt contain any steps yet, get steps from directionsAPIHandler.
              //returns in case DirectionsAPIHandler isnt ready. This if statement stops working
              //when steps is not null meaning APIHandler has returned steps.
-
             if (steps == null)
             {
                 Debug.Log("Grabbing steps");
@@ -93,14 +88,10 @@ public class ARGuide : MonoBehaviour
                     Debug.Log("Currcheckpoint at == null " + currCheckpoint.GetType());
                     InterpolatePath(currCheckpoint);
                     offsetAngle = getAngle(currCheckpoint);
-                  
-
-
                 }
 
                 if (currIndex == totalCheckpoints)
                 {
-
                     Debug.Log("Destination Reached " + currIndex);
                     destinationReached = true;
                     destinationSelected = false;
@@ -130,18 +121,10 @@ public class ARGuide : MonoBehaviour
         List<Vector3> spherePositions = new List<Vector3>();
         Debug.Log("Interpolating path w/ checkpoint " + checkpoint.GetType());
         var checkpointVector = interpolationStart.transform.position;
-        Debug.Log("Broke 1");
         var camPosition = cam.transform.position;
-        Debug.Log("Broke 2");
-
         var distance = Vector3.Distance(camPosition, checkpointVector);
-        Debug.Log("Broke 3");
-
         distance = Mathf.Floor(distance);
-        Debug.Log("Broke 4");
-
         int numSpheres = (int) distance;
-        Debug.Log("Broke 5");
 
         //linear interpolation between checkpoint and camera position
         for (int i = 0; i <= numSpheres; i++)
@@ -152,16 +135,12 @@ public class ARGuide : MonoBehaviour
         //Create the objects in the World Space and add them to interpolation object list
         foreach (Vector3 position in spherePositions)
         {
-            Debug.Log("Broke 6");
             GameObject interpolationObject = Instantiate(interpolatePrefab);
-            Debug.Log("Broke 7");
             interpolationObject.transform.position = position;
             interpolationObject.transform.localScale= Vector3.one*0.15f;
-            Debug.Log("Broke 8");
             Debug.Log("Interpolation object type " + interpolationObject.GetType());
             interpolationObjectsList.Add(interpolationObject);
             Debug.Log("list length " + interpolationObjectsList.Count);
-            Debug.Log("Broke 9");
 
         }
     }
@@ -311,7 +290,6 @@ public class ARGuide : MonoBehaviour
 
         //Api call here 
         Debug.Log("Making api call");
-       // directionsAPIHandler.CreateDirectionsCall(user_lat, user_long, buildingLat, buildingLong);
         directionsAPIHandler.CreateDirectionsCall(GPSData.Instance.latitude, GPSData.Instance.longitude, buildingLat, buildingLong);
 
     }
