@@ -3,75 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "26151JEGR09619",
         "name": "com.DefaultCompany.CSUNARMap",
-        "processId": 12989,
+        "processId": 23533,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "26151JEGR09619",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2405,
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 16048,
             "exited": true
         },
         {
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 20768,
+            "processId": 16784,
             "exited": true
         },
         {
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 22276,
+            "processId": 17315,
             "exited": true
         },
         {
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 22684,
+            "processId": 17851,
             "exited": true
         },
         {
             "deviceId": "26151JEGR09619",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 2223,
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 18770,
             "exited": false
         },
         {
             "deviceId": "26151JEGR09619",
             "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 8391,
-            "exited": false
-        },
-        {
-            "deviceId": "26151JEGR09619",
-            "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 8698,
-            "exited": false
-        },
-        {
-            "deviceId": "26151JEGR09619",
-            "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 9187,
-            "exited": false
-        },
-        {
-            "deviceId": "26151JEGR09619",
-            "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 9957,
-            "exited": false
-        },
-        {
-            "deviceId": "26151JEGR09619",
-            "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 12253,
-            "exited": false
-        },
-        {
-            "deviceId": "26151JEGR09619",
-            "name": "com.DefaultCompany.CSUNARMap",
-            "processId": 12989,
+            "processId": 23533,
             "exited": false
         }
     ],

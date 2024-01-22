@@ -27,7 +27,8 @@ public class DirectionsAPIHandler : MonoBehaviour
         }
     }
     public void CreateDirectionsCall(double user_lat, double user_long, double destination_lat, double destination_long)
-    { 
+    {
+        Debug.Log("Making API Call in API handler");
         var uri = string.Format("https://maps.googleapis.com/maps/api/directions/json?origin={0},{1}&destination={2},{3}&mode=walking&key={4}", user_lat, user_long, destination_lat, destination_long, API_KEY);
         StartCoroutine(GetRoute(uri));
     }

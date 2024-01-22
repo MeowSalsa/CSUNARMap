@@ -21,8 +21,8 @@ public class ARGuide : MonoBehaviour
     public GameObject interpolatePrefab;
     private List<Step> steps;
     private bool destinationReached;
-    GameObject currCheckpoint = null;
-    private List<GameObject> interpolationObjectsList;
+    GameObject currCheckpoint;
+    private List<GameObject> interpolationObjectsList = new List<GameObject>();
     private float north;
 
     //vars to determine if user is facing the correct direction
@@ -37,8 +37,6 @@ public class ARGuide : MonoBehaviour
     //creating lon/lat variables.  These will be updated when the start button is pressed
     private double buildingLong = 0;
     private double buildingLat = 0;
-    private double  user_lat;
-    private double user_long;
 
     void Start()
     {
@@ -47,8 +45,6 @@ public class ARGuide : MonoBehaviour
         cam = Camera.main;
         destinationSelected = false;
         panelWidth = panel.rect.width;
-        user_lat = GPSData.Instance.latitude;
-        user_long = GPSData.Instance.latitude;
     }
 
     int currIndex = 0;
@@ -56,9 +52,9 @@ public class ARGuide : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(destinationSelected);
-        Debug.Log(buildingLat);
-        Debug.Log(buildingLong);
+        Debug.Log("Destination Selected " + destinationSelected);
+        Debug.Log("Building lat " + buildingLat);
+        Debug.Log("Building lon " + buildingLong);
         //Keep trying to get north until it's not the preset MaxValue or 0.
         if (north == float.MaxValue || north == 0)
         {
@@ -71,14 +67,14 @@ public class ARGuide : MonoBehaviour
         {    // if steps doesnt contain any steps yet, get steps from directionsAPIHandler.
              //returns in case DirectionsAPIHandler isnt ready. This if statement stops working
              //when steps is not null meaning APIHandler has returned steps.
-
             if (steps == null)
             {
-
+                Debug.Log("Grabbing steps");
                 steps = directionsAPIHandler.getDirections().routes[0].legs[0].steps;
+                Debug.Log("Grabbed steps " + steps.Count);
                 totalCheckpoints = steps.Count;
-                Debug.Log("Getting steps " + totalCheckpoints);
-                //return;
+               // Debug.Log("Getting steps " + totalCheckpoints);
+                return;
             }
 
             //get first step
@@ -89,41 +85,47 @@ public class ARGuide : MonoBehaviour
                 if (currCheckpoint == null)
                 {
                     currCheckpoint = PlaceCheckpoint(checkpoint);
+                    Debug.Log("Currcheckpoint at == null " + currCheckpoint.GetType());
                     InterpolatePath(currCheckpoint);
                     offsetAngle = getAngle(currCheckpoint);
-                    
                 }
 
-                if (currIndex != totalCheckpoints)
+                if (currIndex == totalCheckpoints)
                 {
-                    //check if user is going the right direction
-                    checkDirection();
-                    if (cam.transform.position == gameObject.transform.position)
+                    Debug.Log("Destination Reached " + currIndex);
+                    destinationReached = true;
+                    destinationSelected = false;
+                }
+                else
+                {
+                    if (cam.transform.position == currCheckpoint.transform.position)
                     {
+                        Debug.Log("Moving to next step");
                         currIndex++;
                         checkpoint = steps[currIndex];
                         Destroy(currCheckpoint);
                         currCheckpoint = null;
+                        //check if user is going the right direction
+                        //checkDirection();
                     }
-                }
-                else
-                {
-                    Debug.Log("Destination Reached");
-                    destinationReached = true;
-                    destinationSelected = false;
+
                 }
             }
+            if (currCheckpoint != null) { checkDirection(); }
         }
     }
     private void InterpolatePath(GameObject checkpoint)
     {
+        GameObject interpolationStart = checkpoint;
+        Debug.Log("Grabbed checkp" +  interpolationStart.GetType());
         List<Vector3> spherePositions = new List<Vector3>();
-        Debug.Log("Interpolating path");
-        var checkpointVector = checkpoint.transform.position;
+        Debug.Log("Interpolating path w/ checkpoint " + checkpoint.GetType());
+        var checkpointVector = interpolationStart.transform.position;
         var camPosition = cam.transform.position;
         var distance = Vector3.Distance(camPosition, checkpointVector);
         distance = Mathf.Floor(distance);
         int numSpheres = (int) distance;
+
         //linear interpolation between checkpoint and camera position
         for (int i = 0; i <= numSpheres; i++)
         {
@@ -133,10 +135,13 @@ public class ARGuide : MonoBehaviour
         //Create the objects in the World Space and add them to interpolation object list
         foreach (Vector3 position in spherePositions)
         {
-            var interpolation = Instantiate(interpolatePrefab);
-            interpolation.transform.position = position;
-            interpolation.transform.localScale= Vector3.one*0.1f;
-            interpolationObjectsList.Add(interpolation);
+            GameObject interpolationObject = Instantiate(interpolatePrefab);
+            interpolationObject.transform.position = position;
+            interpolationObject.transform.localScale= Vector3.one*0.15f;
+            Debug.Log("Interpolation object type " + interpolationObject.GetType());
+            interpolationObjectsList.Add(interpolationObject);
+            Debug.Log("list length " + interpolationObjectsList.Count);
+
         }
     }
     private GameObject PlaceCheckpoint(Step checkpoint)
@@ -146,7 +151,8 @@ public class ARGuide : MonoBehaviour
         var geographicalNorth = GPSData.getNorth();
         var bearing = angleFromCoordinate(checkpoint.start_location.lat, checkpoint.start_location.lng,checkpoint.end_location.lat,checkpoint.end_location.lng);
         //bearing = (bearing +360) % 360;
-        bearing *= Mathf.Deg2Rad;
+        bearing = Math.Abs(bearing - 360) - 90;
+        bearing = Deg2Rad(bearing);
         Debug.Log("Bearing after deg2rad " + bearing);
         var forward = (float)Math.Cos(bearing);
         var right = (float)Math.Sin(bearing);
@@ -164,10 +170,10 @@ public class ARGuide : MonoBehaviour
         Debug.Log("Rotated vector ends up being " + checkpointGameObject.transform.position.ToString() + "\nRotation is " + checkpointGameObject.transform.rotation);
         
         //NORTH INDICATOR -- Just creates an object wherever North is.
-       /* var test = Instantiate(interpolatePrefab);
+        /*var test = Instantiate(interpolatePrefab);
         var positionvector = new Vector3(0,0,1);
         test.transform.position = positionvector + cam.transform.position; //????
-        test.transform.RotateAround(cam.transform.position, Vector3.up, -GPSData.getNorth());*/
+        test.transform.RotateAround(cam.transform.position, Vector3.up, -GPSData.getNorth());//*/
         
         return checkpointGameObject;
     }
@@ -224,18 +230,18 @@ public class ARGuide : MonoBehaviour
 
     private void checkDirection()
     {
-        angle = getAngle(currCheckpoint) - offsetAngle;
+        angle = getAngle(currCheckpoint);// - offsetAngle;
         Debug.Log("angle " + angle);
-        if (!isVisible(currCheckpoint) && angle < -8.0F)
+        if (!isVisible(currCheckpoint) && angle < -15.0F)
         {
             Debug.Log("Turn Right");
             RightArrow.transform.position = new Vector3(100f, 2000f, 0f);
             LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         }
-        else if (!isVisible(currCheckpoint) && angle > 8.0F)
+        else if (!isVisible(currCheckpoint) && angle > 15.0F)
         {
             Debug.Log("Turn Left");
-            LeftArrow.transform.position = new Vector3(1340f, 2000f, 0f);
+            LeftArrow.transform.position = new Vector3(975f, 2000f, 0f);
             RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         }
         else
@@ -283,9 +289,9 @@ public class ARGuide : MonoBehaviour
         panel.anchoredPosition = new Vector2(-panelWidth, 0);
 
         //Api call here 
-        
-        directionsAPIHandler.CreateDirectionsCall(user_lat, user_long, buildingLat, buildingLong);
-        
+        Debug.Log("Making api call");
+        directionsAPIHandler.CreateDirectionsCall(GPSData.Instance.latitude, GPSData.Instance.longitude, buildingLat, buildingLong);
+
     }
 
     // going to make the destinationSelected false to stop calling 
@@ -293,18 +299,21 @@ public class ARGuide : MonoBehaviour
     {
         Debug.Log("destinationSelected is now set to false");
         destinationSelected = false;
+        RightArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
+        LeftArrow.transform.position = new Vector3(-1207f, 526.27f, 0f);
         //var objects = GameObject.FindObjectsOfType(GameObject);
-        //DestroyAllGameObjects();
+        DestroyAllGameObjects();
+        steps = null;
     }
 
  public void DestroyAllGameObjects()
  {
-     GameObject[] GameObjects = (FindObjectsOfType<GameObject>() as GameObject[]);
  
-     for (int i = 0; i < GameObjects.Length; i++)
+     foreach (GameObject interpolationstep in interpolationObjectsList)
      {
-         Destroy(GameObjects[i]);
+         Destroy(interpolationstep);
      }
+        Destroy(currCheckpoint);
  }
 
 
