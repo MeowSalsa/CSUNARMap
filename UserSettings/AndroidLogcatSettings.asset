@@ -1,0 +1,145 @@
+{
+    "m_SelectedDeviceId": "26151JEGR09619",
+    "m_SelectedPackage": {
+        "deviceId": "26151JEGR09619",
+        "name": "com.DefaultCompany.CSUNARMap",
+        "processId": 12989,
+        "exited": false
+    },
+    "m_SelectedPriority": 0,
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 2405,
+            "exited": true
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 20768,
+            "exited": true
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 22276,
+            "exited": true
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 22684,
+            "exited": true
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 2223,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 8391,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 8698,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 9187,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 9957,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 12253,
+            "exited": false
+        },
+        {
+            "deviceId": "26151JEGR09619",
+            "name": "com.DefaultCompany.CSUNARMap",
+            "processId": 12989,
+            "exited": false
+        }
+    ],
+    "m_Tags": {
+        "m_Entries": [
+            {
+                "m_Name": "Filter by all listed tags",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "No Filter",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Tag Control...",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Unity",
+                "m_Selected": true
+            },
+            {
+                "m_Name": "CRASH",
+                "m_Selected": false
+            }
+        ]
+    },
+    "m_MemoryViewerState": {
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "MemoryGroup": 2,
+        "Behavior": 0
+    },
+    "m_FilterOptions": {
+        "m_Filter": "",
+        "m_UseRegularExpressions": false,
+        "m_MatchCase": false
+    },
+    "m_SymbolPaths": [],
+    "m_CaptureVideoSettings": {
+        "TimeLimitEnabled": false,
+        "TimeLimit": 180,
+        "VideoSizeEnabled": false,
+        "VideoSizeX": 1280,
+        "VideoSizeY": 720,
+        "BitRateEnabled": false,
+        "BitRateK": 20000,
+        "DisplayIdEnabled": false,
+        "DisplayId": ""
+    }
+}

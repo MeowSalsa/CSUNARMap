@@ -1,0 +1,111 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJS0Bd2kyQwoARk9ll5pIkGFg",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJgaPCe0uQwoARAkYPf6rxNYI",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 34.2795109,
+               "lng" : -118.4403648
+            },
+            "southwest" : {
+               "lat" : 34.2774438,
+               "lng" : -118.4424975
+            }
+         },
+         "copyrights" : "Map data ©2023 Google",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "0.2 mi",
+                  "value" : 322
+               },
+               "duration" : {
+                  "text" : "4 mins",
+                  "value" : 249
+               },
+               "end_address" : "466 S Brand Blvd, San Fernando, CA 91340, USA",
+               "end_location" : {
+                  "lat" : 34.2795109,
+                  "lng" : -118.442421
+               },
+               "start_address" : "644 Hollister St, San Fernando, CA 91340, USA",
+               "start_location" : {
+                  "lat" : 34.2774438,
+                  "lng" : -118.4403648
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 306
+                     },
+                     "duration" : {
+                        "text" : "4 mins",
+                        "value" : 237
+                     },
+                     "end_location" : {
+                        "lat" : 34.2794549,
+                        "lng" : -118.4424975
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorthwest\u003c/b\u003e on \u003cb\u003eHollister St\u003c/b\u003e toward \u003cb\u003eWolfskill St\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePass by Citi (on the right in 0.2 mi)\u003c/div\u003e",
+                     "polyline" : {
+                        "points" : "_yepEf{{qUQPQRWVEFe@f@aDjDC@ST?@[\\MLGHKJOPa@b@"
+                     },
+                     "start_location" : {
+                        "lat" : 34.2774438,
+                        "lng" : -118.4403648
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "52 ft",
+                        "value" : 16
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 12
+                     },
+                     "end_location" : {
+                        "lat" : 34.2795109,
+                        "lng" : -118.442421
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eS Brand Blvd\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "qefpErh|qUKO"
+                     },
+                     "start_location" : {
+                        "lat" : 34.2794549,
+                        "lng" : -118.4424975
+                     },
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "_yepEf{{qUoJfKa@b@KO"
+         },
+         "summary" : "Hollister St",
+         "warnings" : [
+            "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
