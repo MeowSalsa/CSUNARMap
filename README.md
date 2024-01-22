@@ -14,6 +14,8 @@ Requires Google API Key: [Get API Key](https://developers.google.com/maps/docume
 <img src="https://github.com/MeowSalsa/CSUNARMap/assets/100064587/31a123fb-ec26-4023-b594-cc9430dcfbd6" width="200" alt="Building Selection Menu"> 
 
 
+User is guided to their destination with the use of cyan spheres.
+
 
 
 
